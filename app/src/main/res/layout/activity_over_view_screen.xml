@@ -38,6 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:background="#80000000"
+                    android:transitionGroup="true"
                     android:orientation="vertical">
 
                     <TextView
@@ -79,7 +80,6 @@
                     android:id="@+id/webview_overview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:transitionName="@string/transition_subtitle" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
