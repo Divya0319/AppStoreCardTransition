@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.JsonElement
+import ui.assignment.appstorecardtransition.commons.Utils
 import ui.assignment.appstorecardtransition.network.ApiResponse
 import ui.assignment.appstorecardtransition.network.Status
 import javax.inject.Inject
@@ -47,7 +48,7 @@ class HomeScreen : AppCompatActivity() {
     private fun renderSuccessResponse(data: JsonElement?) {
         val jsonObject = data?.asJsonObject
         Log.d("--------", "-----------------")
-        Log.d("ResponseCaptured", jsonObject.toString())
+        Log.d("ResponseCaptured", Utils.toPrettyFormat(jsonObject!!))
         Log.d("--------", "-----------------")
 
     }
