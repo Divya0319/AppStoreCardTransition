@@ -11,5 +11,6 @@ interface Constants {
         const val TEST_ROUTE_ANIMATION_ENDPOINT = "/v1/test/route/animation"
 
         const val HEADER_NAME = "x-api-key"
+        const val API_KEY = "NEEDKEYHERE"
     }
 }

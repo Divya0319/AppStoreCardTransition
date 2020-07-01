@@ -41,24 +41,26 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     //RxJava3 for asynchronous tasks
-    implementation("io.reactivex.rxjava3:rxjava:3.0.4")
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.17'
 
     //Retrofit for API calls
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    //RxJava2 call adapter factory
+    //RxJava2 call adapter
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+    //Gson Converter
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Gson for parsing JSON
-    implementation ("com.google.code.gson:gson:2.8.6")
+    implementation("com.google.code.gson:gson:2.8.6")
 
     //LifeCycle components
-    implementation ('androidx.lifecycle:lifecycle-extensions:2.2.0')
-    implementation ('androidx.lifecycle:lifecycle-common-java8:2.3.0-alpha05')
+    implementation('androidx.lifecycle:lifecycle-extensions:2.2.0')
+    implementation('androidx.lifecycle:lifecycle-common-java8:2.3.0-alpha05')
 
     //Dagger2 for dependency injection
     implementation 'com.google.dagger:dagger:2.28.1'
     kapt 'com.google.dagger:dagger-compiler:2.28.1'
-
 
 
 }
