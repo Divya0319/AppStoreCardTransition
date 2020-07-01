@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppStoreCardTransition</string>
+    <string name="transition_image">ImageTrans</string>
+    <string name="transition_title">TitleTrans</string>
+    <string name="transition_subtitle">SubtitleTrans</string>
+    <string name="transition_ll">LinearLayoutTrans</string>
 </resources>
