@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AppStoreCardTransition</string>
+    <string name="api_key">NEEDKEYHERE</string>
 </resources>
