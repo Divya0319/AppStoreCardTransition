@@ -3,4 +3,6 @@
     <string name="transition_image">ImageTrans</string>
     <string name="transition_title">TitleTrans</string>
     <string name="transition_subtitle">SubtitleTrans</string>
+    <string name="check_internet_conn">Please check your internet connection</string>
+    <string name="retry_text">Retry</string>
 </resources>

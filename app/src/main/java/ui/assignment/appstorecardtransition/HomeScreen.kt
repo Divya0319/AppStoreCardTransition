@@ -3,9 +3,7 @@ package ui.assignment.appstorecardtransition
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -17,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.JsonElement
-import ui.assignment.appstorecardtransition.commons.Utils
 import ui.assignment.appstorecardtransition.databinding.ActivityHomeScreenBinding
 import ui.assignment.appstorecardtransition.network.ApiResponse
 import ui.assignment.appstorecardtransition.network.HomeScreenResponse
@@ -48,6 +45,7 @@ class HomeScreen : AppCompatActivity() {
         alertDialogBuilder = AlertDialog.Builder(this)
         alertDialogBuilder.setView(R.layout.progress_dialog_with_message)
         dialog = alertDialogBuilder.create()
+        dialog.setCancelable(false)
 
         (application as App).appComponent.doInjection(this)
 
@@ -67,7 +65,7 @@ class HomeScreen : AppCompatActivity() {
             Status.LOADING -> showProgressDialog()
             Status.ERROR -> {
                 hideProgressDialog()
-                Toast.makeText(this, "Some error occured", Toast.LENGTH_LONG).show()
+                renderErrorResponse()
             }
 
             Status.SUCCESS -> {
@@ -77,7 +75,18 @@ class HomeScreen : AppCompatActivity() {
         }
     }
 
+    private fun renderErrorResponse() {
+        binding.clCards.visibility = View.INVISIBLE
+        binding.clNoInternet.visibility = View.VISIBLE
+
+        binding.tvRetry.setOnClickListener { homeScreenViewModel.hitHomeScreenApi() }
+    }
+
     private fun renderSuccessResponse(data: JsonElement?) {
+        if (binding.clNoInternet.visibility == View.VISIBLE) {
+            binding.clNoInternet.visibility = View.INVISIBLE
+        }
+        binding.clCards.visibility = View.VISIBLE
         val jsonObject = data?.asJsonObject
         homeData = gson.fromJson(jsonObject.toString(), HomeScreenResponse::class.java)
 
@@ -92,10 +101,6 @@ class HomeScreen : AppCompatActivity() {
         binding.subtitle1.text = homeData.card_data!![0].subtitle
         binding.subtitle2.text = homeData.card_data!![1].subtitle
         binding.subtitle3.text = homeData.card_data!![2].subtitle
-
-        Log.d("--------", "-----------------")
-        Log.d("ResponseCaptured", Utils.toPrettyFormat(jsonObject!!))
-        Log.d("--------", "-----------------")
 
     }
 
