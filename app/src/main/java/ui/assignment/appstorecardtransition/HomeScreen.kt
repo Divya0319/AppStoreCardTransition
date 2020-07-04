@@ -25,6 +25,10 @@ import javax.inject.Inject
 /**
  * Created by Divya Gupta.
  */
+
+/**
+ * Home Screen activity which contains 3 cards
+ */
 class HomeScreen : AppCompatActivity() {
 
     @Inject
@@ -47,19 +51,22 @@ class HomeScreen : AppCompatActivity() {
         dialog = alertDialogBuilder.create()
         dialog.setCancelable(false)
 
-        (application as App).appComponent.doInjection(this)
+        (application as App).appComponent.doInjection(this) // dependencies are being injected here
 
         supportActionBar?.title = "Home Screen"
 
         homeScreenViewModel =
-            ViewModelProvider(this, homeScreenViewModelFactory)[HomeScreenViewModel::class.java]
+            ViewModelProvider(this, homeScreenViewModelFactory)[HomeScreenViewModel::class.java] // viewmodel instantiated
 
-        homeScreenViewModel.homeScreenResponse.observe(this, Observer { consumeResponse(it) })
+        // livedata observer susbcribed
+        homeScreenViewModel.homeScreenResponse.observe(this, Observer { consumeResponse(it) })  //method called to capture changed livedata value
 
+        // viewmodel method called which sets the value of particular livedata
         homeScreenViewModel.hitHomeScreenApi()
 
     }
 
+    // method which captures api response with its states
     private fun consumeResponse(apiResponse: ApiResponse) {
         when (apiResponse.status) {
             Status.LOADING -> showProgressDialog()
@@ -75,6 +82,7 @@ class HomeScreen : AppCompatActivity() {
         }
     }
 
+    // method which gets called when any error encountered during api call
     private fun renderErrorResponse() {
         binding.clCards.visibility = View.INVISIBLE
         binding.clNoInternet.visibility = View.VISIBLE
@@ -82,6 +90,7 @@ class HomeScreen : AppCompatActivity() {
         binding.tvRetry.setOnClickListener { homeScreenViewModel.hitHomeScreenApi() }
     }
 
+    // method which gets called when api call returns success response
     private fun renderSuccessResponse(data: JsonElement?) {
         if (binding.clNoInternet.visibility == View.VISIBLE) {
             binding.clNoInternet.visibility = View.INVISIBLE
@@ -115,6 +124,8 @@ class HomeScreen : AppCompatActivity() {
             dialog.dismiss()
     }
 
+
+    // method which opens OverView Screen in an animated fashion
     fun animateView(view: View) {
         val intent = Intent(this, OverViewScreen::class.java)
         var pTitle: Pair<View, String>? = null

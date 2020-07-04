@@ -20,6 +20,11 @@ import javax.inject.Singleton
  * Created by Divya Gupta.
  */
 @Module
+
+/**
+ * Dagger Module class created for defining various utility dependencies, which are to be created only once
+ * and used multiple times using "Singleton" keyword
+ */
 class UtilsModule {
 
     @Provides

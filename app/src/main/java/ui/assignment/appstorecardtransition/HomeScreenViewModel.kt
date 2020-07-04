@@ -12,6 +12,12 @@ import ui.assignment.appstorecardtransition.network.Repository
 /**
  * Created by Divya Gupta.
  */
+
+/**
+ * HomeScreen ViewModel class which call repository methods to perform homescreen api calls,
+ * and do changes in relevant livedata
+ * based on API response type
+ */
 class HomeScreenViewModel internal constructor(private val repository: Repository) : ViewModel() {
     private val disposable = CompositeDisposable()
     private val responseHomeScreen = MutableLiveData<ApiResponse>()

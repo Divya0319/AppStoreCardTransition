@@ -3,6 +3,10 @@ package ui.assignment.appstorecardtransition.network
 /**
  * Created by Divya Gupta.
  */
+
+/**
+ * A POJO class created for storing the Home Screen API call success response
+ */
 class HomeScreenResponse {
     var card_data: List<CardDataBean>? = null
 

@@ -3,6 +3,10 @@ package ui.assignment.appstorecardtransition.commons
 /**
  * Created by Divya Gupta.
  */
+
+/**
+ * Common interface class created to centrally keep all constants used in the project
+ */
 interface Constants {
     companion object {
         // base urls and endpoints

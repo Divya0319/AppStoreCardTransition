@@ -9,6 +9,11 @@ import javax.inject.Inject
 /**
  * Created by Divya Gupta.
  */
+
+/**
+ * HomeScreen Viewmodel factory class which generates HomeScreen viewmodel instance based on the parameter given
+ * in our case, that parameter is Repository instance
+ */
 @Suppress("UNCHECKED_CAST")
 class HomeScreenViewModelFactory @Inject constructor(private val repository: Repository) :
     ViewModelProvider.Factory {

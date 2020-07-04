@@ -9,7 +9,11 @@ import javax.inject.Singleton
  * Created by Divya Gupta.
  */
 
-@Component(modules = [AppModule::class, UtilsModule::class])
+/**
+ * Dagger App component class created to define interface methods taking relevant class as parameter where
+ * dependencies are to be injected
+ */
+@Component(modules = [UtilsModule::class])
 @Singleton
 interface AppComponent {
     fun doInjection(homeScreen: HomeScreen)

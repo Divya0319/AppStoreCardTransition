@@ -5,6 +5,11 @@ import com.google.gson.JsonElement
 /**
  * Created by Divya Gupta.
  */
+
+/**
+ * A wrapper class created for capturing the API call responses,
+ * let it be call ongoing, call returned success or, call returned error
+ */
 class ApiResponse(val status: Status, val data: JsonElement?, val error: Throwable?) {
     companion object {
 

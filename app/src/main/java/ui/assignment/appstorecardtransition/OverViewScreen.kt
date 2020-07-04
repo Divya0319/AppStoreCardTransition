@@ -10,6 +10,10 @@ import ui.assignment.appstorecardtransition.databinding.ActivityOverViewScreenBi
 /**
  * Created by Divya Gupta.
  */
+
+/**
+ * Activity opened in full screen mode after a card selected from HomeScreen activity
+ */
 class OverViewScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
