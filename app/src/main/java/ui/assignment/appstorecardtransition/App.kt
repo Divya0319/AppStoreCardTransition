@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import ui.assignment.appstorecardtransition.di.AppComponent
+import ui.assignment.appstorecardtransition.di.AppModule
 import ui.assignment.appstorecardtransition.di.DaggerAppComponent
 import ui.assignment.appstorecardtransition.di.UtilsModule
 
